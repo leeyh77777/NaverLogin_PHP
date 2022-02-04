@@ -1,0 +1,17 @@
+CREATE TABLE `member` (
+	`memNo` INT(11) NOT NULL AUTO_INCREMENT,
+	`memId` VARCHAR(20) NOT NULL COLLATE 'utf8_general_ci',
+	`memPw` VARCHAR(65) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`memNm` VARCHAR(20) NOT NULL COLLATE 'utf8_general_ci',
+	`email` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`snsType` ENUM('none','naver','kakao') NULL DEFAULT 'none' COLLATE 'utf8_general_ci',
+	`snsId` VARCHAR(65) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`regDt` DATETIME NULL DEFAULT current_timestamp(),
+	PRIMARY KEY (`memNo`) USING BTREE,
+	UNIQUE INDEX `memId` (`memId`) USING BTREE,
+	INDEX `snsType` (`snsType`) USING BTREE,
+	INDEX `snsId` (`snsId`) USING BTREE
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
